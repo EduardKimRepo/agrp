@@ -1,0 +1,9 @@
+{
+  "http_status": 403,
+  "agrp_code": 605,
+  "reason": "human_approval_required",
+  "approval_role": "organization_admin",
+  "risk_level": "high",
+  "issuer": "registack.eu",
+  "timestamp": "2026-03-15T12:00:00Z"
+}

@@ -1,0 +1,9 @@
+{
+  "http_status": 403,
+  "agrp_code": 603,
+  "reason": "capability_missing",
+  "required_capability": "financial_transaction",
+  "required_clearance": "level_3",
+  "issuer": "registack.eu",
+  "timestamp": "2026-03-15T12:00:00Z"
+}

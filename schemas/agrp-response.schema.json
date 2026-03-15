@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/agrp-response.schema.json",
+  "title": "AGRP Response",
+  "type": "object",
+  "required": ["agrp_code", "reason", "issuer"],
+  "properties": {
+    "http_status": {
+      "type": "integer",
+      "minimum": 100,
+      "maximum": 599
+    },
+    "agrp_code": {
+      "type": "integer",
+      "minimum": 600,
+      "maximum": 699
+    },
+    "reason": {
+      "type": "string"
+    },
+    "required_capability": {
+      "type": "string"
+    },
+    "required_clearance": {
+      "type": "string"
+    },
+    "policy_reference": {
+      "type": "string"
+    },
+    "approval_role": {
+      "type": "string"
+    },
+    "risk_level": {
+      "type": "string"
+    },
+    "issuer": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "signature": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}
