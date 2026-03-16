@@ -1,0 +1,151 @@
+[
+  {
+    "http_status": 401,
+    "agrp_code": 601,
+    "reason": "identity_required",
+    "identity_provider": "registack.eu/identity",
+    "required_identity_assurance": "loa_2",
+    "issuer": "registack.eu",
+    "timestamp": "2026-03-16T09:00:00Z"
+  },
+  {
+    "http_status": 402,
+    "agrp_code": 602,
+    "reason": "payment_required",
+    "budget_id": "BUD-2026-00482",
+    "required_amount": {
+      "currency": "EUR",
+      "value": "250.00"
+    },
+    "payment_authority": "org-finance-policy",
+    "issuer": "registack.eu",
+    "timestamp": "2026-03-16T09:01:00Z"
+  },
+  {
+    "http_status": 403,
+    "agrp_code": 603,
+    "reason": "capability_missing",
+    "required_capability": "financial_transaction",
+    "required_clearance": "level_3",
+    "issuer": "registack.eu",
+    "timestamp": "2026-03-15T12:00:00Z"
+  },
+  {
+    "http_status": 403,
+    "agrp_code": 604,
+    "reason": "policy_violation",
+    "policy_reference": "POL-DATA-004",
+    "policy_clause": "cross_border_transfer_without_basis",
+    "issuer": "registack.eu",
+    "timestamp": "2026-03-16T09:02:00Z"
+  },
+  {
+    "http_status": 403,
+    "agrp_code": 605,
+    "reason": "human_approval_required",
+    "approval_role": "organization_admin",
+    "risk_level": "high",
+    "issuer": "registack.eu",
+    "timestamp": "2026-03-15T12:00:00Z"
+  },
+  {
+    "http_status": 429,
+    "agrp_code": 606,
+    "reason": "governance_rate_limit",
+    "limit_scope": "tenant:alpha/procurement",
+    "retry_after_seconds": 300,
+    "threshold_type": "high_risk_actions_per_hour",
+    "issuer": "registack.eu",
+    "timestamp": "2026-03-16T09:03:00Z"
+  },
+  {
+    "http_status": 403,
+    "agrp_code": 607,
+    "reason": "scope_mismatch",
+    "declared_scope": "invoice_review",
+    "requested_scope": "vendor_payment_execution",
+    "issuer": "registack.eu",
+    "timestamp": "2026-03-16T09:04:00Z"
+  },
+  {
+    "http_status": 409,
+    "agrp_code": 608,
+    "reason": "intent_conflict",
+    "declared_intent": "summarize_invoice",
+    "inferred_intent": "modify_payment_terms",
+    "confidence": 0.93,
+    "issuer": "registack.eu",
+    "timestamp": "2026-03-16T09:05:00Z"
+  },
+  {
+    "http_status": 403,
+    "agrp_code": 609,
+    "reason": "delegation_not_allowed",
+    "delegation_target": "external_settlement_agent",
+    "delegation_policy": "POL-DELEGATION-002",
+    "issuer": "registack.eu",
+    "timestamp": "2026-03-16T09:06:00Z"
+  },
+  {
+    "http_status": 409,
+    "agrp_code": 610,
+    "reason": "remediation_required",
+    "remediation_actions": [
+      "rotate_agent_credentials",
+      "revalidate_policy_bindings"
+    ],
+    "incident_reference": "INC-2026-00314",
+    "issuer": "registack.eu",
+    "timestamp": "2026-03-16T09:07:00Z"
+  },
+  {
+    "http_status": 202,
+    "agrp_code": 611,
+    "reason": "incident_ticket_created",
+    "ticket_id": "TCK-2026-1042",
+    "incident_reference": "INC-2026-00314",
+    "ticket_queue": "governance-ops",
+    "issuer": "registack.eu",
+    "timestamp": "2026-03-16T09:08:00Z"
+  },
+  {
+    "http_status": 307,
+    "agrp_code": 612,
+    "reason": "rerouted_to_specialist_agent",
+    "specialist_agent_id": "agent://registack.eu/agents/payment-specialist-7",
+    "specialist_capability": "vendor_payment_execution",
+    "correlation_id": "corr-9b20ac7f",
+    "issuer": "registack.eu",
+    "timestamp": "2026-03-16T09:09:00Z"
+  },
+  {
+    "http_status": 403,
+    "agrp_code": 613,
+    "reason": "certification_expired",
+    "certificate_id": "CERT-AGENT-9921",
+    "expired_at": "2026-03-01T00:00:00Z",
+    "required_certification": "financial_controls_v2",
+    "issuer": "registack.eu",
+    "timestamp": "2026-03-16T09:10:00Z"
+  },
+  {
+    "http_status": 403,
+    "agrp_code": 614,
+    "reason": "trust_level_insufficient",
+    "required_trust_level": "tier_4",
+    "actual_trust_level": "tier_2",
+    "trust_policy": "TRUST-POL-009",
+    "issuer": "registack.eu",
+    "timestamp": "2026-03-16T09:11:00Z"
+  },
+  {
+    "http_status": 423,
+    "agrp_code": 615,
+    "reason": "execution_frozen",
+    "freeze_reason": "anomalous_payment_pattern_detected",
+    "freeze_reference": "FRZ-2026-0041",
+    "incident_reference": "INC-2026-00314",
+    "issuer": "registack.eu",
+    "timestamp": "2026-03-16T09:12:00Z"
+  }
+]
