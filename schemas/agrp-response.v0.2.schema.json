@@ -1,0 +1,329 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://registack.eu/schemas/agrp-response.v0.2.schema.json",
+  "title": "AGRP Response v0.2",
+  "type": "object",
+  "required": ["agrp_code", "reason", "issuer", "timestamp"],
+  "properties": {
+    "http_status": {
+      "type": "integer",
+      "minimum": 100,
+      "maximum": 599
+    },
+    "agrp_code": {
+      "type": "integer",
+      "enum": [601, 602, 603, 604, 605, 606, 607, 608, 609, 610, 611, 612, 613, 614, 615]
+    },
+    "reason": {
+      "type": "string",
+      "enum": [
+        "identity_required",
+        "payment_required",
+        "capability_missing",
+        "policy_violation",
+        "human_approval_required",
+        "governance_rate_limit",
+        "scope_mismatch",
+        "intent_conflict",
+        "delegation_not_allowed",
+        "remediation_required",
+        "incident_ticket_created",
+        "rerouted_to_specialist_agent",
+        "certification_expired",
+        "trust_level_insufficient",
+        "execution_frozen"
+      ]
+    },
+    "issuer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "signature": {
+      "type": "string"
+    },
+    "policy_reference": {
+      "type": "string"
+    },
+    "correlation_id": {
+      "type": "string"
+    },
+    "incident_reference": {
+      "type": "string"
+    },
+    "ticket_id": {
+      "type": "string"
+    },
+    "identity_provider": {
+      "type": "string"
+    },
+    "required_identity_assurance": {
+      "type": "string"
+    },
+    "budget_id": {
+      "type": "string"
+    },
+    "required_amount": {
+      "type": "object",
+      "required": ["currency", "value"],
+      "properties": {
+        "currency": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 3
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "payment_authority": {
+      "type": "string"
+    },
+    "required_capability": {
+      "type": "string"
+    },
+    "required_clearance": {
+      "type": "string"
+    },
+    "policy_clause": {
+      "type": "string"
+    },
+    "approval_role": {
+      "type": "string"
+    },
+    "risk_level": {
+      "type": "string"
+    },
+    "limit_scope": {
+      "type": "string"
+    },
+    "retry_after_seconds": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "threshold_type": {
+      "type": "string"
+    },
+    "declared_scope": {
+      "type": "string"
+    },
+    "requested_scope": {
+      "type": "string"
+    },
+    "declared_intent": {
+      "type": "string"
+    },
+    "inferred_intent": {
+      "type": "string"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "delegation_target": {
+      "type": "string"
+    },
+    "delegation_policy": {
+      "type": "string"
+    },
+    "remediation_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ticket_queue": {
+      "type": "string"
+    },
+    "specialist_agent_id": {
+      "type": "string"
+    },
+    "specialist_capability": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "expired_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "required_certification": {
+      "type": "string"
+    },
+    "required_trust_level": {
+      "type": "string"
+    },
+    "actual_trust_level": {
+      "type": "string"
+    },
+    "trust_policy": {
+      "type": "string"
+    },
+    "freeze_reason": {
+      "type": "string"
+    },
+    "freeze_reference": {
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "agrp_code": { "const": 601 } },
+        "required": ["agrp_code"]
+      },
+      "then": {
+        "required": ["reason", "identity_provider", "required_identity_assurance"],
+        "properties": { "reason": { "const": "identity_required" } }
+      }
+    },
+    {
+      "if": {
+        "properties": { "agrp_code": { "const": 602 } },
+        "required": ["agrp_code"]
+      },
+      "then": {
+        "required": ["reason", "budget_id", "required_amount", "payment_authority"],
+        "properties": { "reason": { "const": "payment_required" } }
+      }
+    },
+    {
+      "if": {
+        "properties": { "agrp_code": { "const": 603 } },
+        "required": ["agrp_code"]
+      },
+      "then": {
+        "required": ["reason", "required_capability"],
+        "properties": { "reason": { "const": "capability_missing" } }
+      }
+    },
+    {
+      "if": {
+        "properties": { "agrp_code": { "const": 604 } },
+        "required": ["agrp_code"]
+      },
+      "then": {
+        "required": ["reason", "policy_reference"],
+        "properties": { "reason": { "const": "policy_violation" } }
+      }
+    },
+    {
+      "if": {
+        "properties": { "agrp_code": { "const": 605 } },
+        "required": ["agrp_code"]
+      },
+      "then": {
+        "required": ["reason", "approval_role"],
+        "properties": { "reason": { "const": "human_approval_required" } }
+      }
+    },
+    {
+      "if": {
+        "properties": { "agrp_code": { "const": 606 } },
+        "required": ["agrp_code"]
+      },
+      "then": {
+        "required": ["reason", "limit_scope", "retry_after_seconds", "threshold_type"],
+        "properties": { "reason": { "const": "governance_rate_limit" } }
+      }
+    },
+    {
+      "if": {
+        "properties": { "agrp_code": { "const": 607 } },
+        "required": ["agrp_code"]
+      },
+      "then": {
+        "required": ["reason", "declared_scope", "requested_scope"],
+        "properties": { "reason": { "const": "scope_mismatch" } }
+      }
+    },
+    {
+      "if": {
+        "properties": { "agrp_code": { "const": 608 } },
+        "required": ["agrp_code"]
+      },
+      "then": {
+        "required": ["reason", "declared_intent", "inferred_intent"],
+        "properties": { "reason": { "const": "intent_conflict" } }
+      }
+    },
+    {
+      "if": {
+        "properties": { "agrp_code": { "const": 609 } },
+        "required": ["agrp_code"]
+      },
+      "then": {
+        "required": ["reason", "delegation_target", "delegation_policy"],
+        "properties": { "reason": { "const": "delegation_not_allowed" } }
+      }
+    },
+    {
+      "if": {
+        "properties": { "agrp_code": { "const": 610 } },
+        "required": ["agrp_code"]
+      },
+      "then": {
+        "required": ["reason", "remediation_actions"],
+        "properties": { "reason": { "const": "remediation_required" } }
+      }
+    },
+    {
+      "if": {
+        "properties": { "agrp_code": { "const": 611 } },
+        "required": ["agrp_code"]
+      },
+      "then": {
+        "required": ["reason", "ticket_id"],
+        "properties": { "reason": { "const": "incident_ticket_created" } }
+      }
+    },
+    {
+      "if": {
+        "properties": { "agrp_code": { "const": 612 } },
+        "required": ["agrp_code"]
+      },
+      "then": {
+        "required": ["reason", "specialist_agent_id", "specialist_capability"],
+        "properties": { "reason": { "const": "rerouted_to_specialist_agent" } }
+      }
+    },
+    {
+      "if": {
+        "properties": { "agrp_code": { "const": 613 } },
+        "required": ["agrp_code"]
+      },
+      "then": {
+        "required": ["reason", "certificate_id", "expired_at", "required_certification"],
+        "properties": { "reason": { "const": "certification_expired" } }
+      }
+    },
+    {
+      "if": {
+        "properties": { "agrp_code": { "const": 614 } },
+        "required": ["agrp_code"]
+      },
+      "then": {
+        "required": ["reason", "required_trust_level", "actual_trust_level"],
+        "properties": { "reason": { "const": "trust_level_insufficient" } }
+      }
+    },
+    {
+      "if": {
+        "properties": { "agrp_code": { "const": 615 } },
+        "required": ["agrp_code"]
+      },
+      "then": {
+        "required": ["reason", "freeze_reason", "freeze_reference"],
+        "properties": { "reason": { "const": "execution_frozen" } }
+      }
+    }
+  ],
+  "additionalProperties": true
+}
