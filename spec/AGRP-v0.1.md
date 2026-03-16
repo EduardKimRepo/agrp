@@ -35,6 +35,15 @@ Example:
 | 604 | `policy_violation` | Request violates a governing policy |
 | 605 | `human_approval_required` | A human decision is required before execution |
 | 606 | `governance_rate_limit` | Governance limits or operational quotas are exceeded |
+| 607 | scope_mismatch | Action outside agent scope |
+| 608 | intent_conflict | Declared and inferred intent conflict |
+| 609 | delegation_not_allowed | Task delegation prohibited |
+| 610 | remediation_required | Incident remediation required |
+| 611 | incident_ticket_created | Incident ticket generated |
+| 612 | rerouted_to_specialist_agent | Task reassigned to another agent |
+| 613 | certification_expired | Agent certification expired |
+| 614 | trust_level_insufficient | Agent trust level insufficient |
+| 615 | execution_frozen | Execution suspended by governance controls |
 
 ## Example
 
