@@ -64,13 +64,12 @@ The protocol uses numeric code ranges to represent different governance phases.
 
 ---
 
-# 4. Response Envelope
+4. Response Envelope
 
-An AGRP response **MUST** be returned as a JSON object.
+An AGRP response MUST be returned as a JSON object.
 
 Example:
 
-´´´´json
 {
   "agrp_version": "0.4",
   "agrp_code": 607,
@@ -86,7 +85,6 @@ Example:
     ]
   }
 }
-
 
 ---
 
