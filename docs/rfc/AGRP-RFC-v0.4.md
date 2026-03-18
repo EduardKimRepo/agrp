@@ -70,7 +70,7 @@ An AGRP response **MUST** be returned as a JSON object.
 
 Example:
 
-
+´´´´json
 {
   "agrp_version": "0.4",
   "agrp_code": 607,
