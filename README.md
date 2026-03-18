@@ -1,4 +1,4 @@
-# Agent Governance Response Protocol (AGRP) v0.1
+# Agent Governance Response Protocol (AGRP) v0.4
 
 AGRP is a proposed machine-readable governance response layer for autonomous AI agents.
 
